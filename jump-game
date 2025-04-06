@@ -104,3 +104,35 @@ class Solution {
     }
 
 }
+
+
+
+// Time Complexity :O(n)
+// Space Complexity :
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+
+// Your code here along with comments explaining your approach:Greedy forward
+
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+      
+        if (n < 2) {
+            return true;
+        }
+          int currItr = nums[0];
+        int nextItr = nums[0];
+        for (int i = 1; i <n ; i++) {
+            if(currItr >= n-1){
+                return true;
+            }
+           nextItr =Math.max(nextItr,i+nums[i]);
+           if(i == currItr){
+            currItr=nextItr;
+           }
+        }
+      return false; 
+    }
+
+}
